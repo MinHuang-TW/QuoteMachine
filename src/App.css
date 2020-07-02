@@ -12,47 +12,6 @@
   letter-spacing: 2px;
 }
 
-#quote {
-  padding: 48px;
-  max-width: 680px;
-  width: 70%;
-  position: relative;
-  background: #fff;
-}
-
-#quote:before, 
-#quote:after {
-  content: '';
-  z-index: -1;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  width: 50%;
-  top: 80%;
-  background: #777;
-  box-shadow: 0 15px 10px #777;
-  transform: rotate(-3deg);
-}
-#quote:after {
-  transform: rotate(3deg);
-  right: 10px;
-  left: auto;
-}
-
-#text,
-#author {
-  transition: color 0.5s ease-in-out;
-}
-
-#text {
-  margin: 0px;
-  line-height: 38px;
-}
-
-#author {
-  margin: 40px 0px 0px;
-}
-
 #new-quote {
   color: #fff;
   height: 32px;
@@ -62,45 +21,18 @@
   padding: 0px 24px;
   cursor: pointer;
   margin-top: 32px;
-  position: absolute;
-  bottom: 25%;
-  transition: background 0.5s ease-in-out;
+  transition: background 0.8s ease-in-out;
 }
 #new-quote:hover {
   transform: translateY(-2px);
 }
 
-#tweet-quote {
-  text-decoration: none;
-  font-size: 24px;
-  margin-top: 24px;
-  display: inline-block;
-}
-#tweet-quote:hover {
-  transform: rotate(-16deg);
-}
-#tweet-quote > svg > path {
-  transition: fill 0.5s ease-in-out;
-}
-
-@media screen and (max-width: 960px) {
-  #quote {
-    width: 90%;
-    padding: 32px;
-  }
-
-  #author {
-    margin-top: 24px;
+@media screen and (max-width: 860px) {
+  #new-quote {
+    bottom: 24px;
   }
 
   #new-quote:hover {
     transform: translateY(0px);
-  }
-  #tweet-quote:hover {
-    transform: rotate(0deg);
-  }
-
-  #new-quote {
-    bottom: 24px;
   }
 }

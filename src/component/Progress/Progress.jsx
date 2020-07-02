@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './Progress.module.css';
+import './Progress.css';
 
 const Progress = () => (
-  <div className={styles.loadingioSpinnerWedges}>
-    <div className={styles.ldio}>
+  <div className='loadingioSpinnerWedges'>
+    <div className='ldio'>
       <div>
         <div><div /></div>
         <div><div /></div>

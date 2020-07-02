@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-.App {
+#quote-box {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,20 +12,16 @@
   letter-spacing: 2px;
 }
 
-#quote-box {
+#quote {
   padding: 48px;
-  max-width: 600px;
+  max-width: 680px;
   width: 70%;
   position: relative;
   background: #fff;
 }
 
-#quote-box.active {
-  height: 0px;
-}
-
-#quote-box:before, 
-#quote-box:after {
+#quote:before, 
+#quote:after {
   content: '';
   z-index: -1;
   position: absolute;
@@ -37,7 +33,7 @@
   box-shadow: 0 15px 10px #777;
   transform: rotate(-3deg);
 }
-#quote-box:after {
+#quote:after {
   transform: rotate(3deg);
   right: 10px;
   left: auto;
@@ -45,7 +41,7 @@
 
 #text,
 #author {
-  transition: color 0.8s ease-in-out;
+  transition: color 0.5s ease-in-out;
 }
 
 #text {
@@ -68,7 +64,7 @@
   margin-top: 32px;
   position: absolute;
   bottom: 25%;
-  transition: background 0.8s ease-in-out;
+  transition: background 0.5s ease-in-out;
 }
 #new-quote:hover {
   transform: translateY(-2px);
@@ -84,11 +80,11 @@
   transform: rotate(-16deg);
 }
 #tweet-quote > svg > path {
-  transition: fill 0.8s ease-in-out;
+  transition: fill 0.5s ease-in-out;
 }
 
 @media screen and (max-width: 960px) {
-  #quote-box {
+  #quote {
     width: 90%;
     padding: 32px;
   }

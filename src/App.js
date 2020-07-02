@@ -4,8 +4,8 @@ import TwitterIcon from './component/TwitterIcon';
 import './App.css';
 
 function App() {
-  const [data, setData] = useState([]);
   const randomIndex = (total) => Math.floor(Math.random() * total);
+  const [data, setData] = useState([]);
   const [index, setIndex] = useState(randomIndex(data.length));
   const { name, quote, tag } = data.length > 0 && data[index];
   
@@ -34,13 +34,13 @@ function App() {
         setIndex(randomIndex(data.length));
       })
       .catch((err) => console.log(err));
-  }, []); // eslint-disable-line
+  }, [url]);
 
   return (
-    <div className='App'>
+    <div id='quote-box'>
       {data.length > 0 ? (
         <>
-          <div id='quote-box'>
+          <div id='quote'>
             <h2 id='text' style={{ color }}>{quote}</h2>
             <p id='author' style={{ color }}>{`- ${name}`}</p>
             <a id='tweet-quote' href={href} target='_blank' rel='noopener noreferrer' aria-label='Twitter'>

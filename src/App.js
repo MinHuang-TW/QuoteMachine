@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import Progress from './component/Progress/Progress';
+import TwitterIcon from './component/TwitterIcon';
 import './App.css';
 
 function App() {
@@ -18,10 +20,7 @@ function App() {
     'wisdom': '#0560bd',
   };
 
-  const colorStyle = { 
-    color: colors[tag], 
-    transition: 'color 0.8s ease-in-out',
-  };
+  const color = colors[tag];
 
   const handleIndex = useCallback(() => {
     setIndex(randomIndex(data.length));
@@ -42,40 +41,17 @@ function App() {
       {data.length > 0 ? (
         <>
           <div id='quote-box'>
-            <h2 id='text' style={colorStyle}>{quote}</h2>
-            <p id='author' style={colorStyle}>{`- ${name}`}</p>
-            <a 
-              id='tweet-quote' 
-              href={href}
-              target='_blank'
-              rel='noopener noreferrer'
-              style={colorStyle}
-              aria-label='Twitter'
-            >
-              <i className='fab fa-twitter' />
+            <h2 id='text' style={{ color }}>{quote}</h2>
+            <p id='author' style={{ color }}>{`- ${name}`}</p>
+            <a id='tweet-quote' href={href} target='_blank' rel='noopener noreferrer' aria-label='Twitter'>
+              <TwitterIcon color={color} />
             </a>
           </div>
-          <div 
-            id='new-quote' 
-            style={{ background: colors[tag], transition: 'background 0.8s ease-in-out' }} 
-            onClick={handleIndex}
-          >
+          <div id='new-quote' style={{ background: color }} onClick={handleIndex}>
             Next quote
           </div>
         </>
-      ) : (
-        <div className="loadingio-spinner-wedges">
-          <div className="ldio">
-            <div>
-              <div><div /></div>
-              <div><div /></div>
-              <div><div /></div>
-              <div><div /></div>
-            </div>
-          </div>
-        </div>
-      )}
-
+      ) : (<Progress />)}
     </div>
   );
 }

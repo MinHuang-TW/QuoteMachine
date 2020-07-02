@@ -43,6 +43,11 @@
   left: auto;
 }
 
+#text,
+#author {
+  transition: color 0.8s ease-in-out;
+}
+
 #text {
   margin: 0px;
   line-height: 38px;
@@ -63,6 +68,7 @@
   margin-top: 32px;
   position: absolute;
   bottom: 25%;
+  transition: background 0.8s ease-in-out;
 }
 #new-quote:hover {
   transform: translateY(-2px);
@@ -77,65 +83,9 @@
 #tweet-quote:hover {
   transform: rotate(-16deg);
 }
-
-@keyframes ldio {
-  0% { transform: rotate(0deg) }
-  100% { transform: rotate(360deg) }
+#tweet-quote > svg > path {
+  transition: fill 0.8s ease-in-out;
 }
-.ldio > div > div {
-  transform-origin: 50px 50px;
-  animation: ldio 3.0303030303030303s linear infinite;
-  opacity: 0.8;
-}
-.ldio > div > div > div {
-  position: absolute;
-  left: 15px;
-  top: 15px;
-  width: 35px;
-  height: 35px;
-  border-radius: 35px 0 0 0;
-  transform-origin: 50px 50px
-}.ldio > div div:nth-child(1) {
-  animation-duration: 0.7575757575757576s
-}
-.ldio > div div:nth-child(1) > div {
-  background: #c44129;
-  transform: rotate(0deg);
-}.ldio > div div:nth-child(2) {
-  animation-duration: 1.0101010101010102s
-}
-.ldio > div div:nth-child(2) > div {
-  background: #ec9332;
-  transform: rotate(0deg);
-}.ldio > div div:nth-child(3) {
-  animation-duration: 1.5151515151515151s
-}
-.ldio > div div:nth-child(3) > div {
-  background: #3e8410;
-  transform: rotate(0deg);
-}.ldio > div div:nth-child(4) {
-  animation-duration: 3.0303030303030303s
-}
-.ldio > div div:nth-child(4) > div {
-  background: #0560bd;
-  transform: rotate(0deg);
-}
-.loadingio-spinner-wedges {
-  width: 80px;
-  height: 80px;
-  display: inline-block;
-  overflow: hidden;
-  background: none;
-}
-.ldio {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform: translateZ(0) scale(0.8);
-  backface-visibility: hidden;
-  transform-origin: 0 0;
-}
-.ldio div { box-sizing: content-box; }
 
 @media screen and (max-width: 960px) {
   #quote-box {

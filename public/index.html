@@ -8,7 +8,6 @@
     <meta name="description" content="Random quote machine" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <title>Quote Machine</title>
   </head>
   <body>
@@ -16,15 +15,15 @@
     <div id="root"></div>
 
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-    <script>
-      var firebaseConfig = {
-        apiKey: REACT_APP_API_KEY,
+    <script type="text/javascript">
+      const firebaseConfig = {
+        apiKey: "%REACT_APP_API_KEY%",
         authDomain: "straybirds-restapi.firebaseapp.com",
         databaseURL: "https://straybirds-restapi.firebaseio.com",
         projectId: "straybirds-restapi",
         storageBucket: "straybirds-restapi.appspot.com",
-        messagingSenderId: REACT_APP_MSG_ID,
-        appId: REACT_APP_APP_ID,
+        messagingSenderId: "%REACT_APP_MSG_ID%",
+        appId: "%REACT_APP_APP_ID%",
       };
       firebase.initializeApp(firebaseConfig);
     </script>

@@ -50,6 +50,7 @@ function App() {
               target='_blank'
               rel='noopener noreferrer'
               style={colorStyle}
+              aria-label='Twitter'
             >
               <i className='fab fa-twitter' />
             </a>

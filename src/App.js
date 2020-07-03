@@ -8,6 +8,7 @@ const App = () => {
   const [data, setData] = useState({});
   const [index, setIndex] = useState(randomIndex(62));
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const handleIndex = useCallback(() => {
     setIndex(randomIndex(data.length));
@@ -15,17 +16,24 @@ const App = () => {
 
   useEffect(() => {
     fetch(`${url}/${index}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          const expectedError = res.status >= 400 && res.status < 500;
+          !expectedError && setError(true);
+        }
+        return res.json();
+      })
       .then((data) => {
         setData(data);
         setIsLoading(false);
       })
-      .catch((err) => console.log(err));
   }, [index]);
 
   return (
     <div id='quote-box'>
-      {isLoading ? (<Progress />) : (
+      {isLoading ? (<Progress />) : error ? (
+        <Quote data={{ quote: 'An unexpected error occurrred.' }} />
+      ) : (
         <>
           <Quote color={colors[data.tag]} data={data} />
           <div 

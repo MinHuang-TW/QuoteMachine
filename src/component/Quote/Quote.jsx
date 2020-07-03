@@ -5,9 +5,11 @@ import './Quote.css';
 
 const Quote = ({ color, data: { name, quote } }) => (
   <div id='quote'>
-    <h2 id='text' style={{ color }}>{quote}</h2>
-    <p id='author' style={{ color }}>{`- ${name}`}</p>
-    <a
+    <h2 id='text' style={{ color }}>
+      {!name && <p className='error'>&#9888;</p>}{quote}
+    </h2>
+    {name && (<p id='author' style={{ color }}>{`- ${name}`}</p>)}
+    {name && (<a
       id='tweet-quote'
       href={`${href}&text=${quote} -${name}`}
       target='_blank'
@@ -15,7 +17,7 @@ const Quote = ({ color, data: { name, quote } }) => (
       aria-label='Twitter'
     >
       <TwitterIcon color={color} />
-    </a>
+    </a>)}
   </div>
 );
 

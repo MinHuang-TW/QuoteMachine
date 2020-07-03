@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 }
 
 #new-quote {
@@ -20,7 +20,10 @@
   align-items: center;
   padding: 0px 24px;
   cursor: pointer;
-  margin-top: 32px;
+  /* margin-top: 32px; */
+  top: 24px;
+  right: 24px;
+  position: absolute;
   transition: background 0.8s ease-in-out;
 }
 #new-quote:hover {
@@ -29,7 +32,10 @@
 
 @media screen and (max-width: 860px) {
   #new-quote {
-    bottom: 24px;
+    top: auto;
+    right: auto;
+    bottom: 16px;
+    position: absolute;
   }
 
   #new-quote:hover {

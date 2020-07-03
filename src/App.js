@@ -5,33 +5,34 @@ import { url, randomIndex, colors } from './util';
 import './App.css';
 
 const App = () => {
-  const [data, setData] = useState([]);
-  const [index, setIndex] = useState(null);
+  const [data, setData] = useState({});
+  const [index, setIndex] = useState(randomIndex(62));
   const [isLoading, setIsLoading] = useState(true);
-  const { tag } = !isLoading && data[index];
-  const color = colors[tag];
 
   const handleIndex = useCallback(() => {
     setIndex(randomIndex(data.length));
   }, [data.length]);
 
   useEffect(() => {
-    fetch(url)
+    fetch(`${url}/${index}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-        setIndex(randomIndex(data.length));
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
-  }, []); // eslint-disable-line
+  }, [index]);
 
   return (
     <div id='quote-box'>
       {isLoading ? (<Progress />) : (
         <>
-          <Quote color={color} data={data[index]} />
-          <div id='new-quote' style={{ background: color }} onClick={handleIndex}>
+          <Quote color={colors[data.tag]} data={data} />
+          <div 
+            id='new-quote' 
+            style={{ background: colors[data.tag] }} 
+            onClick={handleIndex}
+          >
             Next quote
           </div>
         </>

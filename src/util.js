@@ -6,7 +6,7 @@ export const colors = {
   wisdom: '#0560bd',
 };
 
-export const randomIndex = (total) => Math.floor(Math.random() * total);
+export const randomIndex = (total) => Math.floor(Math.random() * total) + 1;
 
-export const url = `https://us-central1-straybirds-restapi.cloudfunctions.net/app/api/quotes/`;
+export const url = `https://us-central1-straybirds-restapi.cloudfunctions.net/app/api/quotes`;
 export const href = `https://twitter.com/intent/tweet?hashtags=quote`;
